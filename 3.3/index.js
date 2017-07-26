@@ -4,6 +4,16 @@ var url = require('url');
 var morgan = require('morgan');
 
 app.use(morgan('short'));
+
+app.set('views', './views');
+app.set('view engine','ejs');
+
+app.get('/', function(req,res){
+	res.render('pages/three',{
+		tagline: 'Page Three'
+	});
+});
+
 var memberAPI = express.Router();
 
 memberAPI.get('/', function(req,res){
